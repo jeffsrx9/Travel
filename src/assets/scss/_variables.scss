@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;700&display=swap");
+
+@mixin pad {
+  @media screen and (max-width:1024px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (max-width:767px) {
+    @content;
+  }
+}
+
+@mixin background {
+  background: linear-gradient(110deg,
+      transparent 40%,
+      rgba(255, 255, 255, 0.5) 50%, transparent 60%), $c_main;
+  opacity: 0.3;
+  background-size: 200% 100%;
+  background-position: 120%;
+  animation: 1.5s loading ease-in-out infinite;
+}
+
+@keyframes loading {
+  to {
+    background-position: -20%;
+  }
+}
+
+:root {
+  --c-main: #3fb195;
+  --progress: -100%;
+}
+
+$font: "Noto Sans TC", Arial, sans-serif;
+$c_main: var(--c-main);
+$c_ScenicSpot: #3fb195;
+$c_Restaurant: #ff9999;
+$c_Hotel: #a79bfd;
+$c_Activity: #feb155;
+$c_dark: #2c2c2c;
+$c_light: #ffffff;
+$c_secondary: #c8c8c8;
+$c_secondary-dark: #707070;
+$c_secondary-light: #fafafa;

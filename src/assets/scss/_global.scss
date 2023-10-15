@@ -1,0 +1,341 @@
+@import "./_variables.scss";
+
+::-webkit-scrollbar {
+  width: min(0.4rem, 1vw);
+  height: min(0.4rem, 1vw);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0.25rem;
+  background: $c_secondary;
+}
+
+body {
+  font: 18px $font;
+  color: $c_dark;
+  background-color: $c_secondary-light;
+}
+
+a {
+  color: inherit;
+}
+
+// flex
+.f {
+  &-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &-around {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+
+// font-size
+.fz {
+  &-xxl {
+    font-size: min(2rem, 7vw);
+    font-weight: bold;
+    padding-bottom: 0.2rem;
+  }
+
+  &-xl {
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+
+  &-md {
+    margin: 1.5rem 0;
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+
+  &-sm {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+}
+
+// color
+.c {
+  &-main {
+    color: $c_main;
+  }
+
+  &-sce {
+    color: $c_ScenicSpot;
+  }
+
+  &-res {
+    color: $c_Restaurant;
+  }
+
+  &-htl {
+    color: $c_Hotel;
+  }
+
+  &-act {
+    color: $c_Activity;
+  }
+
+}
+
+// border-radius
+.bdr {
+  &-xl {
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+
+  &-sm {
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+}
+
+// boxshadow
+.boxShadow {
+  box-shadow: 0 0 1.5rem #00000019;
+}
+
+.card-ScenicSpot,
+.card-Restaurant {
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  flex-wrap: wrap;
+
+  .card {
+    flex-direction: column;
+    width: 32%;
+
+    @include pad {
+      width: 47%;
+    }
+
+    @include mobile {
+      width: 100%;
+    }
+
+    &-box {
+      height: 250px;
+    }
+
+    &-tag {
+      background-color: $c_ScenicSpot;
+    }
+  }
+}
+
+.card-Restaurant {
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  flex-wrap: wrap;
+
+  .card {
+    position: relative;
+    width: 32%;
+
+    @include pad {
+      width: 47%;
+    }
+
+    @include mobile {
+      width: 100%;
+    }
+
+    &-box {
+      height: 400px;
+    }
+
+    &-content {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      color: $c_light;
+      background: linear-gradient(to bottom, transparent 30%, #000000cc 100%);
+    }
+
+    &-tag {
+      background-color: $c_Restaurant;
+    }
+  }
+}
+
+.card-Hotel {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .card {
+    width: 48%;
+
+    @include mobile {
+      width: 100%;
+    }
+
+    &-box {
+      width: min(200px, 40%);
+      height: min(200px, 40vw);
+      order: 2;
+    }
+
+    &-content {
+      height: min(200px, 40vw);
+    }
+
+    &-tag {
+      background-color: $c_Hotel;
+    }
+  }
+}
+
+.card-Activity {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .card {
+    width: 100%;
+
+    &:hover .card-content {
+      &::before {
+        right: 2rem;
+        bottom: 50%;
+        transform: rotate(330deg) translateY(3px);
+      }
+
+      &::after {
+        right: 2rem;
+        top: 50%;
+        transform: rotate(-330deg) translateY(-3px);
+      }
+    }
+
+    &-box {
+      width: 40%;
+      height: calc(200px - min(1.6rem, 3vw));
+      margin: min(0.8rem, 1.5vw);
+      border-radius: 0.5rem;
+    }
+
+    &-content {
+      position: relative;
+      height: 200px;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        width: 3px;
+        height: 30px;
+        background-color: $c_Activity;
+        transition: right 0.5s, transform 0.5s;
+
+        @include mobile {
+          opacity: 0;
+        }
+      }
+
+      &::before {
+        bottom: 50%;
+      }
+
+      &::after {
+        top: 50%;
+      }
+    }
+
+    &-tag {
+      background-color: $c_Activity;
+    }
+  }
+}
+
+.card {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 1rem;
+  background: $c_light;
+  text-decoration: none;
+  transition: box-shadow 0.5s;
+
+  &:hover {
+    box-shadow: 0px 0px 1.5rem #00000019;
+
+    .card-img {
+      transform: scale(1.2);
+    }
+  }
+
+  &-box {
+    width: 100%;
+    height: 100%;
+    background: url(../images/logo.png) no-repeat center center / 50%, $c_light;
+    overflow: hidden;
+  }
+
+  &-img {
+    width: 100%;
+    height: 100%;
+    object-position: center center;
+    object-fit: cover;
+    transition: transform 0.5s;
+  }
+
+  &-content {
+    flex: 1;
+    padding: min(1rem, 2vw);
+    background-color: $c_light;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  &-title {
+    margin-bottom: min(1rem, 3vw);
+    font-size: min(1.3rem, 6vw);
+    font-weight: bold;
+  }
+
+  &-text {
+    margin-left: 1.2em;
+    font-size: 1rem;
+    text-align: justify;
+    text-indent: -1.2em;
+
+    @include mobile {
+      font-size: 0.8rem;
+    }
+  }
+
+  &-tag {
+    margin: 0 0.2rem;
+    padding: 0.1rem 0.3rem 0.2rem;
+    line-height: 2rem;
+    color: $c_light;
+    white-space: nowrap;
+  }
+}

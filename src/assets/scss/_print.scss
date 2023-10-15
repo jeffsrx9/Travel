@@ -1,0 +1,15 @@
+//列印
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+  }
+
+  .doNotPrint {
+    display: none;
+  }
+
+  .detail {
+    margin: 0;
+    padding: 0;
+  }
+}
