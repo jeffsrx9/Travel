@@ -25,11 +25,15 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
+
+      - name: Specify Node Version
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
       - name: Install & Build # 執行指令
         run: |
           npm install
-          set NODE_OPTIONS=--openssl-legacy-provider
           npm run build 
           
       # Runs a single command using the runners shell
