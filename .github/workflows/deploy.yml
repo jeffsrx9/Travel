@@ -11,9 +11,6 @@ jobs:
         run: |
           npm install
           npm run build
-        env:
-          VUE_APP_TDX_ID: ${{ secrets.VUE_APP_TDX_ID }}
-          VUE_APP_TDX_Secret: ${{ secrets.VUE_APP_TDX_Secret }}
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
