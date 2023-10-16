@@ -33,7 +33,7 @@
         <div>
           <p>
             Front-End：
-            <a href="#" target="_blank"> Pin Wei Chen </a>
+            <a href="https://jeffsrx9.github.io/resume/index.html" target="_blank"> Pin Wei Chen </a>
           </p>
         </div>
         <p>Source: 交通部TDX運輸資料流通服務平臺</p>
